@@ -84,11 +84,11 @@
          * Initlize global data
          */
         async function initData() {
-            let response = await fetch("docs/hashes.json");
+            let response = await fetch("hashes.json");
             hashes = await response.text();
-            response = await fetch("docs/cards.json");
+            response = await fetch("cards.json");
             cards = await response.json();
-            response = await fetch("docs/characters.json");
+            response = await fetch("characters.json");
             characters = await response.json();
             console.log("Hash data loaded!");
         }
