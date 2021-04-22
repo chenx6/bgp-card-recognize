@@ -37,6 +37,7 @@ else()
     -s WASM=1 \
     -s ALLOW_MEMORY_GROWTH=1 \
     -s NO_FILESYSTEM=1 \
+    -s USE_PTHREADS=0 \
     -flto \
     -O2"
   )
