@@ -123,16 +123,16 @@
         function handleFiles(files) {
             const file = files[0];
             let img = document.getElementById('show-img');
-            img.classList.add("obj");
+            img.onload = () => {
+                drawCanvas(img, "show-canvas", false);
+                drawCanvas(img, "data-canvas", true);
+            }
+            img.onerror = (e) => { console.error(e) }
             img.file = file;
 
             let reader = new FileReader();
             reader.onload = (e) => {
                 img.src = e.target.result
-                img.onload = () => {
-                    drawCanvas(img, "show-canvas", false);
-                    drawCanvas(img, "data-canvas", true);
-                }
             };
             reader.readAsDataURL(file);
         }
