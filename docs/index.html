@@ -182,9 +182,10 @@
             let selectedCards = [];
             for (const i of selected) {
                 let card = cards[i];
+                let level = card.levelLimit + (card.stat.training ? 10 : 0);
                 selectedCards.push({
                     id: i,
-                    level: card.levelLimit,
+                    level: level,
                     exclude: false,
                     art: 1,
                     train: 1,
