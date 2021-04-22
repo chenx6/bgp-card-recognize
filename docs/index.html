@@ -78,7 +78,7 @@
     </div>
     <script lang="javascript">
         'use strict';
-        let DISTRICT = 3, dict = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
+        let DISTRICT = 3, dict = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_', allGeneratedResult = new Set();
         let hashes, cards, characters, table;
         /**
          * Initlize global data
@@ -194,8 +194,17 @@
             }
             let generated = geneEncodedStr(selectedCards);
             console.log('Generated: %s', generated);
+            // Trim repeated data
+            const perCardWidth = 5;
+            for (let i = 0; i < generated.length; i += perCardWidth) {
+                allGeneratedResult.add(generated.slice(i, i + perCardWidth));
+            }
+            let finalData = '';
+            for (const v of allGeneratedResult) {
+                finalData += v;
+            }
             let generaetdTime = Date.now();
-            let fullGenerated = `{"name":"generated-${generaetdTime}","server":3,"compression":"1","data":"${generated}",
+            let fullGenerated = `{"name":"generated-${generaetdTime}","server":3,"compression":"1","data":"${finalData}",
 "items":{"Menu":[4,4,4,4],"Plaza":[4,4,4,4],"Roselia":[4,4,4,4,4,4,4],"Everyone":[4,4,4,4,4,4,4],"Magazine":[4,4,4],
 "Afterglow":[4,4,4,4,4,4,4],"PoppinParty":[4,4,4,4,4,4,4],"PastelPalettes":[4,4,4,4,4,4,4],"HelloHappyWorld":[4,4,4,4,4,4,4]}}`;
             $("#encoded-string").val(fullGenerated);
