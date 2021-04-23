@@ -1,5 +1,9 @@
 # BanG Dream BGP card recognize (WIP)
 
+## DEMO
+
+<https://chenx6.github.io/bgp-card-recognize/>
+
 ## Features
 
 - Recognize the card in cardset and print the card id
