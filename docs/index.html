@@ -233,7 +233,7 @@
                         <td>${index}</td>
                         <td>${card.prefix[DISTRICT]}</td>
                         <td>${character.characterName[DISTRICT]}</td>
-                        <td><input type="checkbox" id="checkbox" name="${i}" class="form-check-input"></td>
+                        <td><input type="checkbox" id="checkbox" name="${i}" class="form-check-input card-checkbox"></td>
                     </tr>`;
                 resultTable.innerHTML += template;
             }
@@ -246,8 +246,16 @@
                         "visible": false,
                         "searchable": false
                     }
-                ]
+                ],
+                "dom": '<"toolbar">frtip'
             });
+            // Add "Select all" button
+            // TODO: Select all cards in table instead of select cards in current page
+            $("div.toolbar").html('<button id="select-all" class="btn btn-primary">Select all cards</button>');
+            $("#select-all").click(() => {
+                let elem = $(".card-checkbox");
+                elem.prop("checked", !elem.prop("checked"));
+            })
         }
 
         /**
