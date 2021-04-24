@@ -48,7 +48,7 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ```plaintext
 bgp-card-recognize
-Copyright (C) <year>  <name of author>
+Copyright (C) 2021  chen_null(abc82766@gmail.com)
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
