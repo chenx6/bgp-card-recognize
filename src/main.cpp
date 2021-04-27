@@ -22,6 +22,14 @@ using namespace std;
 using namespace jsonxx;
 
 #ifndef DEBUG
+/// @brief process the screenshot and return the result
+/// @param offset a pointer points to raw image data
+/// @param width screenshot width
+/// @param height screenshot height
+/// @param hash_data_s bestdori's card hash data
+/// @param first_x a dot in left-top card
+/// @param first_y a dot in left-top card
+/// @return recognized card id that store in vector
 vector<int> process(int offset, int width, int height, string hash_data_s,
                     int first_x, int first_y) {
   uint8_t *buf = reinterpret_cast<uint8_t *>(offset);

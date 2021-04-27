@@ -40,6 +40,10 @@ cmake -DCMAKE_BUILD_TYPE=Debug .. && make -j$(nproc)
 
 See [ARCHITECTURE.md](./ARCHITECTURE.md)
 
+## Document
+
+See [DOCUMENT.md](./DOCUMENT.md)
+
 ## Screenshot
 
 ![Screenshot](./Screenshot.png)
