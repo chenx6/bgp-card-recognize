@@ -1,3 +1,4 @@
+#include <bitset>
 #include <cmath>
 #include <cstdint>
 #include <memory>
@@ -209,15 +210,7 @@ uint64_t hash_(uint8_t array[], int length) {
 /// @brief Compare two vector
 /// @return Matching bit count
 int cmp_vec(uint64_t v1, uint64_t v2) {
-  int count = 0;
-  uint64_t n = v1 ^ v2;
-  for (int i = 0; i < 64; i++) {
-    if ((n & 1) == 0) {
-      count += 1;
-    }
-    n >>= 1;
-  }
-  return count;
+  return 64 - bitset<64>(v1 ^ v2).count();
 }
 
 /// @brief Get nearest vector and return its id
