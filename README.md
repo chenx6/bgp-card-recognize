@@ -31,9 +31,9 @@ cd ${OPENCV_PATH}
 emcmake python3 ./platforms/js/build_js.py build_wasm --build_wasm
 # Build this project
 mkdir build && cd build
-emcmake cmake .. && emmake make -j$(nproc)
+emcmake cmake -DOPENCV_PATH=${OPENCV_PATH} .. && emmake make -j$(nproc)
 # If we want to debug in local machine, replace above command with this command
-cmake -DCMAKE_BUILD_TYPE=Debug .. && make -j$(nproc)
+cmake -DOPENCV_PATH=${OPENCV_PATH} -DCMAKE_BUILD_TYPE=Debug .. && make -j$(nproc)
 ```
 
 ## Architecture

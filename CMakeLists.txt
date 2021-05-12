@@ -10,8 +10,6 @@ if (${CMAKE_BUILD_TYPE} MATCHES Debug)
   include_directories(${OpenCV_INCLUDE_DIRS})
   link_directories(${OpenCV_LIBRARY_DIRS})
 else()
-  # TODO: Modify this!
-  set(OPENCV_PATH /home/chenx/devp/repo/opencv)
   include_directories(${OPENCV_PATH}/include)
   include_directories(${OPENCV_PATH}/build_wasm)
   file(GLOB opencv_include_modules "${OPENCV_PATH}/modules/*/include")
